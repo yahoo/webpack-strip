@@ -41,11 +41,11 @@ var createWebpackTest = function (done) {
 
         var originalSource = fs.readFileSync(cwd + '/index.js', {encoding: 'utf8'});
         expect(originalSource).to.contain('console.log');
-        expect(originalSource).to.contain('debug');
+        expect(originalSource).to.contain('debug(');
 
         var strippedSource = statsJson.modules[0].source;
         expect(strippedSource).to.not.contain('console.log');
-        expect(strippedSource).to.not.contain('debug');
+        expect(strippedSource).to.not.contain('debug(');
 
         done(err);
     };
